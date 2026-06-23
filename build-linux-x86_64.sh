@@ -17,29 +17,31 @@ sdl_shadercross_flags='-DSDLSHADERCROSS_DXC=ON -DSDLSHADERCROSS_SHARED=ON -DSDLS
 # SDL
 cmake -S SDL -B sdl-build-release "$sdl_flags_common $sdl_flags"
 cmake --build sdl-build-release --target install --config Release
-strip -S sdl-build-release/libSDL3.so.0
-cp sdl-build-release/libSDL3.so.0 $linux_bin_root/
+strip -S sdl-build-release/libSDL3.so
+cp sdl-build-release/libSDL3.so $linux_bin_root/
 
 # SDL_image
 cmake -S SDL_image sdl_image-build-release "$sdl_flags_common $sdl_image_flags"
 cmake --build sdl_image-build-release --config Release
-strip -S sdl_image-build-release/libSDL3_image.so.0
-cp sdl_image-build-release/libSDL3_image.so.0 $linux_bin_root/
+strip -S sdl_image-build-release/libSDL3_image.so
+cp sdl_image-build-release/libSDL3_image.so $linux_bin_root/
 
 # SDL_mixer
 cmake -S SDL_mixer sdl_mixer-build-release "$sdl_flags_common $sdl_mixer_flags"
 cmake --build sdl_mixer-build-release --config Release
-strip -S sdl_mixer-build-release/libSDL3_mixer.so.0
-cp sdl_mixer-build-release/libSDL3_mixer.so.0 $linux_bin_root/
+strip -S sdl_mixer-build-release/libSDL3_mixer.so
+cp sdl_mixer-build-release/libSDL3_mixer.so $linux_bin_root/
 
 # SDL_ttf
 cmake -S SDL_ttf SDL_ttf-build-release "$sdl_flags_common $sdl_ttf_flags"
 cmake --build SDL_ttf-build-release --config Release
-strip -S SDL_ttf-build-release/libSDL3_ttf.so.0
-cp SDL_ttf-build-release/libSDL3_ttf.so.0 $linux_bin_root/
+strip -S SDL_ttf-build-release/libSDL3_ttf.so
+cp SDL_ttf-build-release/libSDL3_ttf.so $linux_bin_root/
 
 # SDL_shadercross
 cmake -S SDL_shadercross SDL_shadercross-build-release $sdl_flags_common $sdl_shadercross_flags
 cmake --build SDL_shadercross-build-release --config Release
-strip -S SDL_shadercross-build-release/libSDL3_shadercross.so.0
-cp SDL_shadercross-build-release/libSDL3_shadercross.so.0 $linux_bin_root/
+strip -S SDL_shadercross-build-release/libSDL3_shadercross.so
+cp SDL_shadercross-build-release/libSDL3_shadercross.so $linux_bin_root/
+strip -S SDL_shadercross-build-release/libdxcompiler.so
+cp SDL_shadercross-build-release/libdxcompiler.so $linux_bin_root/

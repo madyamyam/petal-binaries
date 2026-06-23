@@ -49,3 +49,5 @@ cmake -S SDL_shadercross SDL_shadercross-build-release $sdl_shadercross_flags[0.
 cmake --build SDL_shadercross-build-release --config Release
 strip -S SDL_shadercross-build-release/Release/SDL3_shadercross.dll
 cp SDL_shadercross-build-release/Release/SDL3_shadercross.dll $windows_bin_root/
+strip -S SDL_shadercross-build-release/Release/dxcompiler.dll
+cp SDL_shadercross-build-release/Release/dxcompiler.dll $windows_bin_root/
