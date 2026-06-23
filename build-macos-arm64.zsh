@@ -34,6 +34,8 @@ cmake -S SDL_shadercross SDL_shadercross-build-release "${sdl_shadercross_flags[
 cmake --build SDL_shadercross-build-release --config Release
 strip -S SDL_shadercross-build-release/libSDL3_shadercross.dylib
 cp SDL_shadercross-build-release/libSDL3_shadercross.dylib $macos_bin_root/
+strip -S SDL_shadercross-build-release/external/DirectXShaderCompiler/lib/libdxcompiler.dylib
+cp SDL_shadercross-build-release/external/DirectXShaderCompiler/lib/libdxcompiler.dylib $macos_bin_root/
 # probably not strictly necessary
 strip -S SDL_shadercross-build-release/external/DirectXShaderCompiler/lib/libdxil.dylib
 cp SDL_shadercross-build-release/external/DirectXShaderCompiler/lib/libdxil.dylib $macos_bin_root/
