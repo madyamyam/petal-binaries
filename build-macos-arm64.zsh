@@ -29,6 +29,15 @@ echo $GH_PASSWD | sudo cmake --build sdl-build-release --target install --config
 strip -S sdl-build-release/libSDL3.dylib
 cp sdl-build-release/libSDL3.dylib $macos_bin_root/
 
+# SDL_shadercross
+cmake -S SDL_shadercross SDL_shadercross-build-release "${sdl_shadercross_flags[@]}"
+cmake --build SDL_shadercross-build-release --config Release
+strip -S SDL_shadercross-build-release/libSDL3_shadercross.dylib
+cp SDL_shadercross-build-release/libSDL3_shadercross.dylib $macos_bin_root/
+# probably not strictly necessary
+strip -S SDL_shadercross-build-release/external/DirectXShaderCompiler/lib/libdxil.dylib
+cp SDL_shadercross-build-release/external/DirectXShaderCompiler/lib/libdxil.dylib $macos_bin_root/
+
 # SDL_image
 cmake -S SDL_image sdl_image-build-release "${sdl_image_flags[@]}"
 cmake --build sdl_image-build-release --config Release
@@ -46,11 +55,3 @@ cmake -S SDL_ttf SDL_ttf-build-release "${sdl_ttf_flags[@]}"
 cmake --build SDL_ttf-build-release --config Release
 strip -S SDL_ttf-build-release/libSDL3_ttf.dylib
 cp SDL_ttf-build-release/libSDL3_ttf.dylib $macos_bin_root/
-
-# SDL_shadercross
-cmake -S SDL_shadercross SDL_shadercross-build-release "${sdl_shadercross_flags[@]}"
-cmake --build SDL_shadercross-build-release --config Release
-strip -S SDL_shadercross-build-release/libSDL3_shadercross.dylib
-cp SDL_shadercross-build-release/libSDL3_shadercross.dylib $macos_bin_root/
-strip -S SDL_shadercross-build-release/libdxcompiler.dylib
-cp SDL_shadercross-build-release/libdxcompiler.dylib $macos_bin_root/

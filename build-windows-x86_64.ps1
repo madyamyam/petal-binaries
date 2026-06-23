@@ -26,6 +26,17 @@ cmake --build sdl-build-release --target install --config Release
 strip -S sdl-build-release/Release/SDL3.dll
 cp sdl-build-release/Release/SDL3.dll $windows_bin_root/
 
+# SDL_shadercross
+cmake -S SDL_shadercross SDL_shadercross-build-release $sdl_shadercross_flags[0..$sdl_shadercross_flags.Count]
+cmake --build SDL_shadercross-build-release --config Release
+strip -S SDL_shadercross-build-release/Release/SDL3_shadercross.dll
+cp SDL_shadercross-build-release/Release/SDL3_shadercross.dll $windows_bin_root/
+strip -S SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/lib/dxcompiler.dll
+cp SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/lib/dxcompiler.dll $windows_bin_root/
+# probably not strictly necessary
+strip -S SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/lib/dxil.dll
+cp SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/lib/dxil.dll $windows_bin_root/
+
 # SDL_image
 cmake -S SDL_image sdl_image-build-release $sdl_image_flags[0..$sdl_image_flags.Count]
 cmake --build sdl_image-build-release --config Release
@@ -43,11 +54,3 @@ cmake -S SDL_ttf sdl_ttf-build-release $sdl_ttf_flags[0..$sdl_ttf_flags.Count]
 cmake --build sdl_ttf-build-release --config Release
 strip -S sdl_ttf-build-release/Release/SDL3_ttf.dll
 cp sdl_ttf-build-release/Release/SDL3_ttf.dll $windows_bin_root/
-
-# SDL_shadercross
-cmake -S SDL_shadercross SDL_shadercross-build-release $sdl_shadercross_flags[0..$sdl_shadercross_flags.Count]
-cmake --build SDL_shadercross-build-release --config Release
-strip -S SDL_shadercross-build-release/Release/SDL3_shadercross.dll
-cp SDL_shadercross-build-release/Release/SDL3_shadercross.dll $windows_bin_root/
-strip -S SDL_shadercross-build-release/Release/dxcompiler.dll
-cp SDL_shadercross-build-release/Release/dxcompiler.dll $windows_bin_root/
