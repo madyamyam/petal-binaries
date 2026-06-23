@@ -15,25 +15,25 @@ sdl_ttf_flags='-DSDLTTF_STRICT=ON -DSDLTTF_INSTALL=OFF -DSDLTTF_INSTALL_CPACK=OF
 sdl_shadercross_flags='-DSDLSHADERCROSS_DXC=ON -DSDLSHADERCROSS_SHARED=ON -DSDLSHADERCROSS_STATIC=OFF -DSDLSHADERCROSS_SPIRVCROSS_SHARED=OFF -DSDLSHADERCROSS_VENDORED=ON -DSDLSHADERCROSS_CLI=OFF -DSDLSHADERCROSS_INSTALL=OFF -DSDLSHADERCROSS_INSTALL_CPACK=OFF -DSDLSHADERCROSS_INSTALL_MAN=OFF'
 
 # SDL
-cmake -S SDL -B sdl-build-release "$sdl_flags_common $sdl_flags"
+cmake -S SDL -B sdl-build-release $sdl_flags_common $sdl_flags
 cmake --build sdl-build-release --target install --config Release
 strip -S sdl-build-release/libSDL3.so
 cp sdl-build-release/libSDL3.so $linux_bin_root/
 
 # SDL_image
-cmake -S SDL_image sdl_image-build-release "$sdl_flags_common $sdl_image_flags"
+cmake -S SDL_image sdl_image-build-release $sdl_flags_common $sdl_image_flags
 cmake --build sdl_image-build-release --config Release
 strip -S sdl_image-build-release/libSDL3_image.so
 cp sdl_image-build-release/libSDL3_image.so $linux_bin_root/
 
 # SDL_mixer
-cmake -S SDL_mixer sdl_mixer-build-release "$sdl_flags_common $sdl_mixer_flags"
+cmake -S SDL_mixer sdl_mixer-build-release $sdl_flags_common $sdl_mixer_flags
 cmake --build sdl_mixer-build-release --config Release
 strip -S sdl_mixer-build-release/libSDL3_mixer.so
 cp sdl_mixer-build-release/libSDL3_mixer.so $linux_bin_root/
 
 # SDL_ttf
-cmake -S SDL_ttf SDL_ttf-build-release "$sdl_flags_common $sdl_ttf_flags"
+cmake -S SDL_ttf SDL_ttf-build-release $sdl_flags_common $sdl_ttf_flags
 cmake --build SDL_ttf-build-release --config Release
 strip -S SDL_ttf-build-release/libSDL3_ttf.so
 cp SDL_ttf-build-release/libSDL3_ttf.so $linux_bin_root/
