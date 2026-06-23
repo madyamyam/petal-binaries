@@ -29,26 +29,13 @@ cp sdl-build-release/Release/SDL3.dll $windows_bin_root/
 # SDL_shadercross
 cmake -S SDL_shadercross SDL_shadercross-build-release $sdl_shadercross_flags[0..$sdl_shadercross_flags.Count]
 cmake --build SDL_shadercross-build-release --config Release
-
-if (Test-Path -Path "SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/Release/dxcompiler.dll") {
-    Write-Host "Found dxcompiler.dll"
-} else {
-    Write-Host "Could not find dxcompiler.dll"
-}
-
-if (Test-Path -Path "SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/Release/dxil.dll") {
-    Write-Host "Found dxil.dll"
-} else {
-    Write-Host "Could not find dxil.dll"
-}
-
 strip -S SDL_shadercross-build-release/Release/SDL3_shadercross.dll
 cp SDL_shadercross-build-release/Release/SDL3_shadercross.dll $windows_bin_root/
-strip -S SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/Release/dxcompiler.dll
-cp SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/Release/dxcompiler.dll $windows_bin_root/
+strip -S SDL_shadercross-build-release/external/DirectXShaderCompiler/Release/bin/dxcompiler.dll
+cp SDL_shadercross-build-release/external/DirectXShaderCompiler/Release/bin/dxcompiler.dll $windows_bin_root/
 # probably not strictly necessary
-strip -S SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/Release/dxil.dll
-cp SDL_shadercross-build-release/Release/external/DirectXShaderCompiler/Release/dxil.dll $windows_bin_root/
+strip -S SDL_shadercross-build-release/external/DirectXShaderCompiler/Release/bin/dxil.dll
+cp SDL_shadercross-build-release/external/DirectXShaderCompiler/Release/bin/dxil.dll $windows_bin_root/
 
 # SDL_image
 cmake -S SDL_image sdl_image-build-release $sdl_image_flags[0..$sdl_image_flags.Count]
