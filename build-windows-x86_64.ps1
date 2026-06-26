@@ -3,7 +3,7 @@
 choco install nasm webp # webp lib needed?
 
 $windows_install_root='install/windows-x86_64'
-$windows_install_lib="$windows_install_root/lib" # /Release/lib dear msvc i beseech you let this be the right directory
+$windows_install_lib="$windows_install_root/bin" # /Release/lib dear msvc i beseech you let this be the right directory
 $windows_bin_root='bin/windows-x86_64'
 mkdir -p $windows_bin_root
 
