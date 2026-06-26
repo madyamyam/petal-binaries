@@ -4,7 +4,7 @@
 yes | brew install nasm bash perl # plutosvg webp libvorbis opus opusfile flac
 
 macos_install_root='install/macos-arm64'
-macos_install_lib="$windows_install_root/lib"
+macos_install_lib="$macos_install_root/lib"
 macos_bin_root='bin/macos-arm64'
 mkdir -p $macos_bin_root
 
