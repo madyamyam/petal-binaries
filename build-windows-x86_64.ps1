@@ -2,8 +2,8 @@
 
 choco install nasm webp # webp lib needed?
 
-$macos_install_root='install/windows-x86_64'
-$macos_install_lib="$windows_install_root/Release/lib" # dear msvc i beseech you let this be the right directory
+$windows_install_root='install/windows-x86_64'
+$windows_install_lib="$windows_install_root/Release/lib" # dear msvc i beseech you let this be the right directory
 $windows_bin_root='bin/windows-x86_64'
 mkdir -p $windows_bin_root
 
@@ -27,32 +27,32 @@ cmake -S SDL -B sdl-build-release $sdl_flags[0..$sdl_flags.Count]
 cmake --build sdl-build-release  --target install --config Release
 cmake --install sdl-build-release --prefix $windows_install_root
 
-strip -S "$windows_install_root"/libSDL3.dll
-cp "$windows_install_root"/SDL3.dll $windows_bin_root/
+strip -S "$windows_install_rootlib/SDL3.dll"
+cp "$windows_install_root/SDL3.dll" $windows_bin_root/
 
 # SDL_image
 cmake -S SDL_image sdl_image-build-release $sdl_image_flags[0..$sdl_image_flags.Count]
 cmake --build sdl_image-build-release --config Release
 cmake --install sdl_image-build-release --prefix $windows_install_root
 
-strip "$windows_install_root"/SDL3_image.dll
-cp "$windows_install_root"/SDL3_image.dll $windows_bin_root/
+strip "$windows_install_root/SDL3_image.dll"
+cp "$windows_install_root/SDL3_image.dll" $windows_bin_root/
 
 # SDL_mixer
 cmake -S SDL_mixer sdl_mixer-build-release $sdl_mixer_flags[0..$sdl_mixer_flags.Count]
 cmake --build sdl_mixer-build-release --config Release
 cmake --install sdl_mixer-build-release --prefix $windows_install_root
 
-strip "$windows_install_root"/SDL3_mixer.dll
-cp "$windows_install_root"/SDL3_mixer.dll $windows_bin_root/
+strip "$windows_install_root/SDL3_mixer.dll"
+cp "$windows_install_root/SDL3_mixer.dll" $windows_bin_root/
 
 # SDL_ttf
 cmake -S SDL_ttf sdl_ttf-build-release $sdl_ttf_flags[0..$sdl_ttf_flags.Count]
 cmake --build sdl_ttf-build-release --config Release
 cmake --install sdl_ttf-build-release --prefix $windows_install_root
 
-strip "$windows_install_root"/SDL3_ttf.dll
-cp "$windows_install_root"/SDL3_ttf.dll $windows_bin_root/
+strip "$windows_install_root/SDL3_ttf.dll"
+cp "$windows_install_root/SDL3_ttf.dll" $windows_bin_root/
 
 # SDL_shadercross
 # we won't be using DXBC
@@ -60,11 +60,11 @@ cmake SDL_shadercross sdl_shadercross-build-release $sdl_shadercross_flags[0..$s
 cmake --build sdl_shadercross-build-release --config Release
 cmake --install sdl_shadercross-build-release --prefix $windows_install_root
 
-strip "$windows_install_root"/SDL3_shadercross.dll
-cp "$windows_install_root"/SDL3_shadercross.dll $windows_bin_root/
+strip "$windows_install_root/SDL3_shadercross.dll"
+cp "$windows_install_root/SDL3_shadercross.dll" $windows_bin_root/
 
-strip "$windows_install_root"/dxcompiler.dll
-cp "$windows_install_root"/dxcompiler $windows_bin_root/
+strip "$windows_install_root/dxcompiler.dll"
+cp "$windows_install_root/dxcompiler" $windows_bin_root/
 
-strip "$windows_install_root"/dxil.dll
-cp "$windows_install_root"/dxil.dll $windows_bin_root/
+strip "$windows_install_root/dxil.dll"
+cp "$windows_install_root/dxil.dll" $windows_bin_root/
