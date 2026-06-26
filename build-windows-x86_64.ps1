@@ -64,7 +64,7 @@ strip "$windows_install_lib/SDL3_shadercross.dll"
 cp "$windows_install_lib/SDL3_shadercross.dll" $windows_bin_root/
 
 strip "$windows_install_lib/dxcompiler.dll"
-cp "$windows_install_lib/dxcompiler" $windows_bin_root/
+cp "$windows_install_lib/dxcompiler.dll" $windows_bin_root/
 
 strip "$windows_install_lib/dxil.dll"
 cp "$windows_install_lib/dxil.dll" $windows_bin_root/
