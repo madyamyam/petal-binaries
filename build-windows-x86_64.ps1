@@ -3,7 +3,7 @@
 choco install nasm webp # webp lib needed?
 
 $windows_install_root='install/windows-x86_64'
-$windows_install_lib="$windows_install_root/Release/lib" # dear msvc i beseech you let this be the right directory
+$windows_install_lib="$windows_install_root/lib" # /Release/lib dear msvc i beseech you let this be the right directory
 $windows_bin_root='bin/windows-x86_64'
 mkdir -p $windows_bin_root
 
@@ -56,7 +56,7 @@ cp "$windows_install_lib/SDL3_ttf.dll" $windows_bin_root/
 
 # SDL_shadercross
 # we won't be using DXBC
-cmake SDL_shadercross sdl_shadercross-build-release $sdl_shadercross_flags[0..$sdl_shadercross_flags.Count]
+cmake -S SDL_shadercross sdl_shadercross-build-release $sdl_shadercross_flags[0..$sdl_shadercross_flags.Count]
 cmake --build sdl_shadercross-build-release --config Release
 cmake --install sdl_shadercross-build-release --prefix $windows_install_root
 

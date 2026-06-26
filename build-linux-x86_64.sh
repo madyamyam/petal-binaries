@@ -50,7 +50,7 @@ cp "$linux_install_lib"/libSDL3_ttf.so $linux_bin_root/
 
 # SDL_shadercross
 # we won't be using DXBC, don't include libvkd3d-utils
-cmake SDL_shadercross sdl_shadercross-build-release $sdl_flags_common $sdl_shadercross_flags
+cmake -S SDL_shadercross sdl_shadercross-build-release $sdl_flags_common $sdl_shadercross_flags
 cmake --build sdl_shadercross-build-release --config Release
 cmake --install sdl_shadercross-build-release --prefix $linux_install_root
 
