@@ -58,7 +58,7 @@ strip "$linux_install_lib"/libSDL3_shadercross.so
 cp "$linux_install_lib"/libSDL3_shadercross.so $linux_bin_root/
 
 strip "$linux_install_lib"/libdxcompiler.so
-cp "$linux_install_lib"/libdxcompiler $linux_bin_root/
+cp "$linux_install_lib"/libdxcompiler.so $linux_bin_root/
 
 strip "$linux_install_lib"/libdxil.so
 cp "$linux_install_lib"/libdxil.so $linux_bin_root/
