@@ -24,6 +24,8 @@ cmake --install sdl-build-release --prefix $linux_install_root
 strip -S "$linux_install_lib/libSDL3.so"
 cp "$linux_install_lib/libSDL3.so" $linux_bin_root/
 
+ls $linux_bin_root
+
 # SDL_image
 #cmake -S SDL_image sdl_image-build-release $sdl_flags_common $sdl_image_flags
 #cmake --build sdl_image-build-release --config Release
@@ -63,3 +65,5 @@ cp "$linux_install_lib/libdxcompiler.so" $linux_bin_root/
 
 strip "$linux_install_lib/libdxil.so"
 cp "$linux_install_lib/libdxil.so" $linux_bin_root/
+
+ls $linux_bin_root
