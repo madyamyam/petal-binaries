@@ -21,32 +21,32 @@ cmake -S SDL -B sdl-build-release $sdl_flags_common $sdl_flags
 cmake --build sdl-build-release --config Release
 cmake --install sdl-build-release --prefix $linux_install_root
 
-strip -S "$linux_install_lib"/libSDL3.so
-cp "$linux_install_lib"/libSDL3.so $linux_bin_root/
+strip -S "$linux_install_lib/libSDL3.so"
+cp "$linux_install_lib/libSDL3.so" $linux_bin_root/
 
 # SDL_image
-cmake -S SDL_image sdl_image-build-release $sdl_flags_common $sdl_image_flags
-cmake --build sdl_image-build-release --config Release
-cmake --install sdl_image-build-release --prefix $linux_install_root
-
-strip "$linux_install_lib"/libSDL3_image.so
-cp "$linux_install_lib"/libSDL3_image.so $linux_bin_root/
-
-# SDL_mixer
-cmake -S SDL_mixer sdl_mixer-build-release $sdl_flags_common $sdl_mixer_flags
-cmake --build sdl_mixer-build-release --config Release
-cmake --install sdl_mixer-build-release --prefix $linux_install_root
-
-strip "$linux_install_lib"/libSDL3_mixer.so
-cp "$linux_install_lib"/libSDL3_mixer.so $linux_bin_root/
-
-# SDL_ttf
-cmake -S SDL_ttf sdl_ttf-build-release $sdl_flags_common $sdl_ttf_flags
-cmake --build sdl_ttf-build-release --config Release
-cmake --install sdl_ttf-build-release --prefix $linux_install_root
-
-strip "$linux_install_lib"/libSDL3_ttf.so
-cp "$linux_install_lib"/libSDL3_ttf.so $linux_bin_root/
+#cmake -S SDL_image sdl_image-build-release $sdl_flags_common $sdl_image_flags
+#cmake --build sdl_image-build-release --config Release
+#cmake --install sdl_image-build-release --prefix $linux_install_root
+#
+#strip "$linux_install_lib/libSDL3_image.so"
+#cp "$linux_install_lib/libSDL3_image.so" $linux_bin_root/
+#
+## SDL_mixer
+#cmake -S SDL_mixer sdl_mixer-build-release $sdl_flags_common $sdl_mixer_flags
+#cmake --build sdl_mixer-build-release --config Release
+#cmake --install sdl_mixer-build-release --prefix $linux_install_root
+#
+#strip "$linux_install_lib/libSDL3_mixer.so"
+#cp "$linux_install_lib/libSDL3_mixer.so" $linux_bin_root/
+#
+## SDL_ttf
+#cmake -S SDL_ttf sdl_ttf-build-release $sdl_flags_common $sdl_ttf_flags
+#cmake --build sdl_ttf-build-release --config Release
+#cmake --install sdl_ttf-build-release --prefix $linux_install_root
+#
+#strip "$linux_install_lib/libSDL3_ttf.so"
+#cp "$linux_install_lib/libSDL3_ttf.so" $linux_bin_root/
 
 # SDL_shadercross
 # we won't be using DXBC, don't include libvkd3d-utils
@@ -54,11 +54,12 @@ cmake -S SDL_shadercross sdl_shadercross-build-release $sdl_flags_common $sdl_sh
 cmake --build sdl_shadercross-build-release --config Release
 cmake --install sdl_shadercross-build-release --prefix $linux_install_root
 
-strip "$linux_install_lib"/libSDL3_shadercross.so
-cp "$linux_install_lib"/libSDL3_shadercross.so $linux_bin_root/
+strip "$linux_install_lib/libSDL3_shadercross.so"
+cp "$linux_install_lib/libSDL3_shadercross.so" $linux_bin_root/
 
-strip "$linux_install_lib"/libdxcompiler.so
-cp "$linux_install_lib"/libdxcompiler.so $linux_bin_root/
+#patchelf "$linux_install_lib"/libdxcompiler.so --add-rpath \$ORIGIN # im not impresed...
+strip "$linux_install_lib/libdxcompiler.so"
+cp "$linux_install_lib/libdxcompiler.so" $linux_bin_root/
 
-strip "$linux_install_lib"/libdxil.so
-cp "$linux_install_lib"/libdxil.so $linux_bin_root/
+strip "$linux_install_lib/libdxil.so"
+cp "$linux_install_lib/libdxil.so" $linux_bin_root/
